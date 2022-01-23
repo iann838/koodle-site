@@ -1,0 +1,66 @@
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.cursor-pointer * {
+    cursor: pointer !important;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f100;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.extra-small {
+    font-size: 0.8rem;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.capfirst {
+    text-transform: capitalize;
+}
+
+.extra-small {
+    font-size: 0.8rem !important;
+}
+
+.extra-small * {
+    font-size: 0.8rem !important;
+}
+
+.image-auto-width {
+    object-fit: cover !important;
+    width: 100% !important;
+}
+
+.image-auto-height {
+    object-fit: cover !important;
+    height: 100% !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}

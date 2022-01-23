@@ -1,0 +1,102 @@
+
+@mixin x-slide ($clsName, $enterOffset, $leaveOffset, $enterOpacity: 1, $leaveOpacity: 1, $time: .1s) {
+    .#{$clsName}-enter-active {
+        transition: all $time ease-out;
+    }
+    
+    .#{$clsName}-leave-active {
+        transition: all $time ease-out;
+    }
+    
+    .#{$clsName}-enter-from {
+        transform: translateX($enterOffset);
+        opacity: $enterOpacity;
+    }
+    .#{$clsName}-leave-to {
+        transform: translateX($leaveOffset);
+        opacity: $leaveOpacity;
+    }
+}
+
+@mixin y-slide ($clsName, $enterOffset, $leaveOffset, $enterOpacity: 1, $leaveOpacity: 1, $time: .1s) {
+    .#{$clsName}-enter-active {
+        transition: all $time ease-out;
+    }
+    
+    .#{$clsName}-leave-active {
+        transition: all $time ease-out;
+    }
+    
+    .#{$clsName}-enter-from {
+        transform: translateY($enterOffset);
+        opacity: $enterOpacity;
+    }
+    .#{$clsName}-leave-to {
+        transform: translateY($leaveOffset);
+        opacity: $leaveOpacity;
+    }
+}
+
+@mixin y-open ($clsName, $maxHeight, $activeOpacity: 1, $inactiveOpacity: 1, $time: .1s) {
+    .#{$clsName}-enter-active {
+        transition: all $time ease-out;
+        height: $maxHeight;
+        opacity: $activeOpacity;
+    }
+    
+    .#{$clsName}-leave-active {
+        transition: all $time ease-out;
+        height: $maxHeight;
+        opacity: $activeOpacity;
+    }
+    
+    .#{$clsName}-enter-from,
+    .#{$clsName}-leave-to {
+        opacity: $inactiveOpacity;
+        height: 0;
+    }
+}
+
+@mixin x-open ($clsName, $maxWidth, $enterOpacity: 1, $leaveOpacity: 1, $time: .1s) {
+    .#{$clsName}-enter-active {
+        transition: all $time ease-out;
+        width: $maxWidth;
+    }
+    
+    .#{$clsName}-leave-active {
+        transition: all $time ease-out;
+        width: $maxWidth;
+    }
+    
+    .#{$clsName}-enter-from {
+        opacity: $enterOpacity;
+        width: 0;
+    }
+    .#{$clsName}-leave-to {
+        opacity: $leaveOpacity;
+        width: 0;
+    }
+}
+
+
+@mixin fade ($clsName, $time: .1s) {
+    .#{$clsName}-enter-active,
+    .#{$clsName}-leave-active {
+        transition: opacity $time ease-out;
+    }
+
+    .#{$clsName}-enter-from,
+    .#{$clsName}-leave-to {
+        opacity: 0;
+    }
+}
+
+
+@mixin variable-transition ($clsName, $varName, $time: .1s) {
+    .#{$clsName} {
+        -webkit-transition: #{$varName} $time ease-in-out !important;
+        -moz-transition: #{$varName} $time ease-in-out !important;
+        -o-transition: #{$varName} $time ease-in-out !important;
+        transition: #{$varName} $time ease-in-out !important;
+    }
+}
