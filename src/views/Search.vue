@@ -77,7 +77,11 @@
                 </div>
                 <div class="ms-lg-4 mt-4 mt-lg-0">
                     <div>
-                        <a :href="result.link" target="_blank" class="fst"><h5><u>{{result.title || "No product name - Click to check product name at store"}}</u></h5></a>
+                        <a
+                            :href="result.link"
+                            @click="$api.get(`click/${result.request.category}/${result.request.name}`)"
+                            target="_blank" class="fst"
+                        ><h5><u>{{result.title || "No product name - Click to check product name at store"}}</u></h5></a>
                     </div>
                     <div class="mt-3 text-success">
                         <h5 class="fw-bold" v-if="result.rating">
@@ -107,7 +111,7 @@
                         <h5 class="text-primary" v-else>No price available - Check price at store</h5>
                     </div>
                     <div class="mt-3">
-                        <a :href="result.link" target="_blank" class="">
+                        <a @click="$api.get(`click/${result.request.category}/${result.request.name}`)" :href="result.link" target="_blank" class="">
                             <button class="btn btn-primary d-inline-block">Buy at store</button>
                         </a>
                         <button

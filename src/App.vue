@@ -63,7 +63,7 @@
             <component :is="Component" :key="$route.fullPath" />
         </transition>
     </router-view>
-    <div class="text-secondary fst-italic p-3"><small>*Disclaimer: This website only serves for educational purpose only | <a href="https://github.com/paaksing/koodle-api">Open Source</a>*</small></div>
+    <div class="text-secondary fst-italic p-3"><small>*Disclaimer: This website only serves for educational purpose only | <a href="https://github.com/paaksing/koodle-api" class="text-primary">Open Source</a>*</small></div>
 </template>
 
 <style lang="scss">

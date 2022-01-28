@@ -14,7 +14,11 @@
                 </div>
                 <div class="ms-lg-4 mt-4 mt-lg-0">
                     <div>
-                        <a :href="pivotProduct.link" target="_blank" class="fst"><h5><u>{{pivotProduct.title || "No product name - Click to check product name at store"}}</u></h5></a>
+                        <a
+                            :href="pivotProduct.link"
+                            @click="$api.get(`click/${pivotProduct.request.category}/${pivotProduct.request.name}`)"
+                            target="_blank" class="fst"
+                        ><h5><u>{{pivotProduct.title || "No product name - Click to check product name at store"}}</u></h5></a>
                     </div>
                     <div class="mt-3 text-success">
                         <h5 class="fw-bold" v-if="pivotProduct.rating">
@@ -44,7 +48,7 @@
                         <h5 class="text-primary" v-else>No price available - Click to check price at store</h5>
                     </div>
                     <div class="mt-3">
-                        <a :href="pivotProduct.link" target="_blank" class="">
+                        <a @click="$api.get(`click/${pivotProduct.request.category}/${pivotProduct.request.name}`)" :href="pivotProduct.link" target="_blank" class="">
                             <button class="btn btn-primary d-inline-block">Buy at store</button>
                         </a>
                     </div>
@@ -80,7 +84,11 @@
                     </div>
                     <div class="ms-lg-4 mt-4 mt-lg-0">
                         <div>
-                            <a :href="product.link" target="_blank" class="fst"><h5><u>{{product.title || "No product name - Click to check product name at store"}}</u></h5></a>
+                            <a
+                                :href="product.link"
+                                @click="$api.get(`click/${product.request.category}/${product.request.name}`)"
+                                target="_blank" class="fst"
+                            ><h5><u>{{product.title || "No product name - Click to check product name at store"}}</u></h5></a>
                         </div>
                         <div class="mt-3 text-success">
                             <h5 class="fw-bold" v-if="product.rating">
@@ -129,7 +137,7 @@
                             <h5 class="text-primary" v-else>No price available - Check price at store</h5>
                         </div>
                         <div class="">
-                            <a :href="product.link" target="_blank" class="">
+                            <a @click="$api.get(`click/${product.request.category}/${product.request.name}`)" :href="product.link" target="_blank" class="">
                                 <button class="btn btn-primary mt-3 d-inline-block">Buy at store</button>
                             </a>
                             <button
@@ -165,7 +173,7 @@ import { Watch } from "vue-property-decorator"
 import { Product } from "@/interfaces"
 
 @Options({})
-export default class Home extends Vue {
+export default class Compare extends Vue {
 
     pivotProduct: Product | null = null
     products: Array<Product> = []
